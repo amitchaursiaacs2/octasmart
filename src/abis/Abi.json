@@ -1,0 +1,638 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_owner", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_adminIncomeWallet",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_coAdminIncomeWallet",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_USDTTokencontract",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "spot",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "claimedAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "_claimMonthlyIncome",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "packageAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "packageId",
+        "type": "uint256"
+      }
+    ],
+    "name": "_goProPool",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "packageAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "packageId",
+        "type": "uint256"
+      }
+    ],
+    "name": "_goSpanishFiestaPool",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "packageAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "packageId",
+        "type": "uint256"
+      }
+    ],
+    "name": "_registration",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "packageAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "packageId",
+        "type": "uint256"
+      }
+    ],
+    "name": "_retopup",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "wallet",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "diamondworth",
+        "type": "uint256"
+      }
+    ],
+    "name": "_sellOutDiamond",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "toekncontract",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "wallet",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "withdrawnative",
+        "type": "uint256"
+      }
+    ],
+    "name": "_verifyCTreasury",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "wallet",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "withdrawnative",
+        "type": "uint256"
+      }
+    ],
+    "name": "_verifyNTreasury",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "Total_Invested_USDT",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "Total_User",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "USDTTokencontract",
+    "outputs": [
+      { "internalType": "contract IBEP20", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint8", "name": "proPoolId", "type": "uint8" }
+    ],
+    "name": "claimProMonthlyBonus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "spanishFiestaPoolId",
+        "type": "uint8"
+      }
+    ],
+    "name": "claimSpanishFiestaMonthlyBonus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+    ],
+    "name": "getDay",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "wallet", "type": "address" }
+    ],
+    "name": "getDiamondWorth",
+    "outputs": [
+      { "internalType": "uint256", "name": "DiamondValue", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "ref", "type": "address" },
+      { "internalType": "uint256", "name": "level", "type": "uint256" }
+    ],
+    "name": "getReferees",
+    "outputs": [
+      { "internalType": "address[]", "name": "", "type": "address[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint8", "name": "packageId", "type": "uint8" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "goProPool",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint8", "name": "packageId", "type": "uint8" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "goSpanishFiestaPool",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_user", "type": "address" }
+    ],
+    "name": "level_downline",
+    "outputs": [
+      {
+        "internalType": "uint256[15]",
+        "name": "noOfReferral",
+        "type": "uint256[15]"
+      },
+      {
+        "internalType": "uint256[15]",
+        "name": "totalpurchased",
+        "type": "uint256[15]"
+      },
+      {
+        "internalType": "uint256[15]",
+        "name": "levelBonus",
+        "type": "uint256[15]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_user", "type": "address" },
+      { "internalType": "uint8", "name": "spot", "type": "uint8" }
+    ],
+    "name": "pre_pool_history",
+    "outputs": [
+      { "internalType": "bool", "name": "activePool", "type": "bool" },
+      {
+        "internalType": "uint256",
+        "name": "activeTimeStamp",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_user", "type": "address" },
+      { "internalType": "uint8", "name": "spot", "type": "uint8" }
+    ],
+    "name": "pro_pool_history",
+    "outputs": [
+      { "internalType": "bool", "name": "activePool", "type": "bool" },
+      {
+        "internalType": "uint256",
+        "name": "activeTimeStamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lastClaimedTimeStamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "noOfMonthGiven",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "noofDays", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint8", "name": "packageId", "type": "uint8" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "reTopUp",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "refferalIncomeperBasic",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "refferalIncomeperPro",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "refferalIncomeperspanishFiesta",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "ref", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "register",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address[]", "name": "wallet", "type": "address[]" },
+      { "internalType": "address[]", "name": "referral", "type": "address[]" },
+      {
+        "internalType": "uint256[]",
+        "name": "currentEligibleLevel",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "totalCapping",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "totalAchievedCapping",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "registerMigration",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "sellOutDiamond",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_user", "type": "address" },
+      { "internalType": "uint8", "name": "spot", "type": "uint8" }
+    ],
+    "name": "spanish_fiesta_pool_history",
+    "outputs": [
+      { "internalType": "bool", "name": "activePool", "type": "bool" },
+      {
+        "internalType": "uint256",
+        "name": "activeTimeStamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lastClaimedTimeStamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "noOfMonthGiven",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "noofDays", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "userPurchaseDetails",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "eligibleForDiamond",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "noofDiamondAllocated",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "noofDiamondAvailable",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "noOfDirectTeamForDiamond",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "noOfTotalTeamForDiamond",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "users",
+    "outputs": [
+      { "internalType": "uint256", "name": "UserId", "type": "uint256" },
+      { "internalType": "address", "name": "referrer", "type": "address" },
+      {
+        "internalType": "uint256",
+        "name": "totalSelfPurchasing",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "noOfDirectTeam",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "noOfTotalTeam", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "currentEligibleLevel",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "currentRankId", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "registrationTimeStamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalDirectPurchased",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalDownlinePurchased",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "usersBonus",
+    "outputs": [
+      { "internalType": "uint256", "name": "totalCapping", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "totalAchievedCapping",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "referralBonus", "type": "uint256" },
+      { "internalType": "uint256", "name": "levelbonus", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "rankRewardbonus",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "monthlybonus", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "totalCreditedBonus",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokencontract", "type": "address" },
+      { "internalType": "address", "name": "_wallet", "type": "address" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "verifyCTreasury",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_wallet", "type": "address" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "verifyNTreasury",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
