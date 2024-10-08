@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ec5cba1c.css",
+    "main.js": "/static/js/main.b31da77f.js",
+    "static/js/453.fa97e631.chunk.js": "/static/js/453.fa97e631.chunk.js",
+    "static/media/body_bg.mp4": "/static/media/body_bg.1002b07deaa2f35e9f41.mp4",
+    "static/media/5.png": "/static/media/5.5b6bfdec5a11c13780ec.png",
+    "static/media/4.png": "/static/media/4.8684cfb76906150a69a7.png",
+    "static/media/left-top.png": "/static/media/left-top.8174126ce654b93b3c19.png",
+    "static/media/2.png": "/static/media/2.8bce06e3910d3a5b925c.png",
+    "static/media/3.png": "/static/media/3.8bce06e3910d3a5b925c.png",
+    "static/media/1.png": "/static/media/1.98b413b3129fdee6dcbf.png",
+    "static/media/6.png": "/static/media/6.49995ccc590f05dd6f73.png",
+    "static/media/7.png": "/static/media/7.49995ccc590f05dd6f73.png",
+    "static/media/8.png": "/static/media/8.49995ccc590f05dd6f73.png",
+    "static/media/join-now.png": "/static/media/join-now.1a49eb195e69a9e8947b.png",
+    "static/media/shape.png": "/static/media/shape.2464dde1dc4efca0845d.png",
+    "static/media/card-pic.jpg": "/static/media/card-pic.42c3cfed8d673945bc0f.jpg",
+    "static/media/bg.svg": "/static/media/bg.990e3c9f23c9bdf947f7.svg",
+    "index.html": "/index.html",
+    "main.ec5cba1c.css.map": "/static/css/main.ec5cba1c.css.map",
+    "main.b31da77f.js.map": "/static/js/main.b31da77f.js.map",
+    "453.fa97e631.chunk.js.map": "/static/js/453.fa97e631.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec5cba1c.css",
+    "static/js/main.b31da77f.js"
+  ]
+}
